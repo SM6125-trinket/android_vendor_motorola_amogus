@@ -986,6 +986,7 @@ PRODUCT_COPY_FILES += \
     vendor/motorola/amogus/proprietary/vendor/radio/qcril_database/upgrade/9_version_qcrildb.sql:$(TARGET_COPY_OUT_VENDOR)/radio/qcril_database/upgrade/9_version_qcrildb.sql
 
 PRODUCT_PACKAGES += \
+    android.hardware.gnss@2.1-service-qti-amogus \
     libdsi_netctrl \
     libqmi_cci \
     libqmi_common_so \

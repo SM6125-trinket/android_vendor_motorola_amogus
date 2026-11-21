@@ -7,6 +7,44 @@ soong_namespace {
 	],
 }
 
+cc_prebuilt_binary {
+	name: "android.hardware.gnss@2.1-service-qti-amogus",
+	stem: "android.hardware.gnss@2.1-service-qti",
+	owner: "motorola",
+	strip: {
+		none: true,
+	},
+	srcs: ["proprietary/vendor/bin/hw/android.hardware.gnss@2.1-service-qti"],
+	relative_install_path: "hw",
+	init_rc: ["proprietary/vendor/etc/init/android.hardware.gnss@2.1-service-qti.rc"],
+	vintf_fragments: [
+		"proprietary/vendor/etc/vintf/manifest/android.hardware.gnss@2.1-service-qti.xml",
+		"proprietary/vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml",
+	],
+	check_elf_files: false,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libqsap_sdk",
+	owner: "motorola",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/vendor/lib/libqsap_sdk.so"],
+		},
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/libqsap_sdk.so"],
+		},
+	},
+	compile_multilib: "both",
+	check_elf_files: false,
+	prefer: true,
+	soc_specific: true,
+}
+
 cc_prebuilt_library_shared {
 	name: "libdsi_netctrl",
 	owner: "motorola",
